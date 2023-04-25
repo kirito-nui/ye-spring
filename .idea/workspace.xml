@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="279532c3-3fa4-46c4-b9bc-acd6f093763f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanDefinition/BeanDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanDefinition/BeanDefinitionRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanDefinition/RootBeanDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanFactory/BeanFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanFactory/DefaultListableBeanFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/aware/Aware.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/aware/BeanNameAware.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanPostProcessor/BeanFactoryPostProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanPostProcessor/BeanPostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yingheng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yingheng/beanFactory/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yingheng/beanFactory/DefaultListableBeanFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/ideaProject/ye-spring",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,7 +72,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -87,6 +80,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yingheng.Main" />
       <module name="ye-spring.main" />
+      <option name="PROGRAM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.yingheng.*" />
@@ -111,8 +105,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682408912243</updated>
-      <workItem from="1682408913379" duration="2166000" />
+      <workItem from="1682408913379" duration="3051000" />
+      <workItem from="1682412200776" duration="2271000" />
     </task>
+    <task id="LOCAL-00001" summary="spring">
+      <created>1682411152001</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682411152001</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,5 +131,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="spring" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring" />
   </component>
 </project>

@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DefaultListableBeanFactory implements BeanFactory, BeanDefinitionRegister {
 
 
-    private static ConcurrentHashMap<String, RootBeanDefinition> beanDefinitionMaps = new ConcurrentHashMap(256);
+    private static ConcurrentHashMap<String, BeanDefinition> beanDefinitionMaps = new ConcurrentHashMap(256);
     private static ConcurrentHashMap<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(256);
 
     @Override
@@ -28,7 +28,7 @@ public class DefaultListableBeanFactory implements BeanFactory, BeanDefinitionRe
     }
 
     private Object createBean(String beanName) {
-        RootBeanDefinition rootBeanDefinition = beanDefinitionMaps.get(beanName);
+        RootBeanDefinition rootBeanDefinition = (RootBeanDefinition) beanDefinitionMaps.get(beanName);
         String className = rootBeanDefinition.getClassName();
         try {
             Constructor<?> constructor = Class.forName(className).getConstructor();
