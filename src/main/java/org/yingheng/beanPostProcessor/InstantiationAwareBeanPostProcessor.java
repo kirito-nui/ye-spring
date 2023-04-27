@@ -4,7 +4,7 @@ package org.yingheng.beanPostProcessor;
  * @author: yeyingheng
  * @date: 2023/4/26 14:46
  */
-public interface MyInstantiationAwareBeanPostProcessor extends MyBeanPostProcessor{
+public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor{
 
 
     default Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName){

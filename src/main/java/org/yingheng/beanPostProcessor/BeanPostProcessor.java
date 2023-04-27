@@ -1,6 +1,6 @@
 package org.yingheng.beanPostProcessor;
 
-public interface MyBeanPostProcessor {
+public interface BeanPostProcessor {
 
     /**
      * bean初始化前

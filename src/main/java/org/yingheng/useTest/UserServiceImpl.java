@@ -1,5 +1,7 @@
 package org.yingheng.useTest;
 
+import org.yingheng.beanPostProcessor.Autowired;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,7 @@ import java.util.List;
  */
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private OrderService orderService;
 
     @Override

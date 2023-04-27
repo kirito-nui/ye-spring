@@ -12,4 +12,5 @@ public class RootBeanDefinition implements BeanDefinition{
 
     private String beanName;
     private String className;
+    private Class<?> clazz;
 }
