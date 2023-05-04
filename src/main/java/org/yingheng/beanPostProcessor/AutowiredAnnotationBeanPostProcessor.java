@@ -29,7 +29,6 @@ public class AutowiredAnnotationBeanPostProcessor implements InstantiationAwareB
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 }
-                System.out.println();
             }
         }
         return InstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);

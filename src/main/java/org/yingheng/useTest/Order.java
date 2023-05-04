@@ -1,9 +1,12 @@
 package org.yingheng.useTest;
 
+import lombok.Data;
+
 /**
  * @author: yeyingheng
  * @date: 2023/4/26 11:52
  */
+@Data
 public class Order {
 
 

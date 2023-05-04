@@ -13,6 +13,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private CarService carService;
+
     @Override
     public boolean register(User user) {
         return false;

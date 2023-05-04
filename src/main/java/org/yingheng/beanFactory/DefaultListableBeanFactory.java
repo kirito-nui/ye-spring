@@ -10,9 +10,7 @@ import org.yingheng.beanPostProcessor.InstantiationAwareBeanPostProcessor;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -24,15 +22,32 @@ public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefi
 
     private static ConcurrentHashMap<String, BeanDefinition> beanDefinitionMaps = new ConcurrentHashMap(256);
     private static List<String> beanDefinitionNames = new ArrayList<>(256);
-    private static ConcurrentHashMap<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(256);
+
+    // 正在创建的beanName集合
+    private static Set<String> singletonsCurrentlyInCreation = Collections.newSetFromMap(new ConcurrentHashMap<>());
+
+    // 完整生命周期的beans
+    private static Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
+
+    // 刚实例化完成的beans
+    private static Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<>();
 
     private static List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
     private BeanPostProcessorCache beanPostProcessorCache;
     @Override
     public Object getBean(String beanName) {
-        Object bean = singletonObjects.get(beanName);
+        Object bean = getSingleton(beanName);
         if (bean == null) {
             bean = createBean(beanName);
+        }
+        return bean;
+    }
+
+    private Object getSingleton(String beanName) {
+        Object bean = null;
+        bean = singletonObjects.get(beanName);
+        if (bean == null) {
+            bean = earlySingletonObjects.get(beanName);
         }
         return bean;
     }
@@ -51,15 +66,18 @@ public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefi
     }
 
     private Object createBean(String beanName) {
+        beforeSingletonCreation(beanName);
         RootBeanDefinition rootBeanDefinition = (RootBeanDefinition) beanDefinitionMaps.get(beanName);
         String className = rootBeanDefinition.getClassName();
         try {
             Constructor<?> constructor = Class.forName(className).getConstructor();
             Object bean = constructor.newInstance();
 
+            earlySingletonObjects.put(beanName, bean);
             // 填充属性
             populateBean(beanName, rootBeanDefinition, bean);
             singletonObjects.put(beanName, bean);
+            singletonsCurrentlyInCreation.remove(beanName);
             return bean;
         } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
@@ -72,6 +90,10 @@ public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefi
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void beforeSingletonCreation(String beanName) {
+        singletonsCurrentlyInCreation.add(beanName);
     }
 
     private void populateBean(String beanName, RootBeanDefinition rootBeanDefinition, Object bean) {
