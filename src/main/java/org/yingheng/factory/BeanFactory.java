@@ -1,4 +1,4 @@
-package org.yingheng.beanFactory;
+package org.yingheng.factory;
 
 public interface BeanFactory {
 

@@ -1,15 +1,14 @@
-package org.yingheng.beanFactory;
+package org.yingheng.factory;
 
 import org.yingheng.aware.BeanFactoryAware;
 import org.yingheng.beanDefinition.BeanDefinition;
-import org.yingheng.beanDefinition.BeanDefinitionRegister;
+import org.yingheng.beanDefinition.BeanDefinitionRegistry;
 import org.yingheng.beanDefinition.RootBeanDefinition;
 import org.yingheng.beanPostProcessor.BeanPostProcessor;
 import org.yingheng.beanPostProcessor.InstantiationAwareBeanPostProcessor;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Array;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author: yeyingheng
  * @date: 2023/4/25 15:54
  */
-public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefinitionRegister {
+public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefinitionRegistry {
 
 
     private static ConcurrentHashMap<String, BeanDefinition> beanDefinitionMaps = new ConcurrentHashMap(256);

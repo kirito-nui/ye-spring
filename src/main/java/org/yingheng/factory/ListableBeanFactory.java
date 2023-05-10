@@ -1,4 +1,4 @@
-package org.yingheng.beanFactory;
+package org.yingheng.factory;
 
 /**
  * @author: yeyingheng

@@ -1,10 +1,8 @@
 package org.yingheng;
 
-import org.yingheng.beanFactory.DefaultListableBeanFactory;
+import org.yingheng.factory.DefaultListableBeanFactory;
 import org.yingheng.beanPostProcessor.AutowiredAnnotationBeanPostProcessor;
 import org.yingheng.useTest.*;
-
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {

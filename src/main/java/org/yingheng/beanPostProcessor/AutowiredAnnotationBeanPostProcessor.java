@@ -1,7 +1,7 @@
 package org.yingheng.beanPostProcessor;
 
 import org.yingheng.aware.BeanFactoryAware;
-import org.yingheng.beanFactory.BeanFactory;
+import org.yingheng.factory.BeanFactory;
 
 import java.lang.reflect.Field;
 

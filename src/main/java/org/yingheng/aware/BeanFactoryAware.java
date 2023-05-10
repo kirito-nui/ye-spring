@@ -1,6 +1,6 @@
 package org.yingheng.aware;
 
-import org.yingheng.beanFactory.BeanFactory;
+import org.yingheng.factory.BeanFactory;
 
 /**
  * @author: yeyingheng
