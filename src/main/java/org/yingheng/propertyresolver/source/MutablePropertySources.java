@@ -27,7 +27,7 @@ public class MutablePropertySources implements PropertySources {
 
     @Override
     public Iterator<PropertySource<?>> iterator() {
-        return null;
+        return this.propertySourceList.iterator();
     }
 
     public void addLast(PropertySource<?> propertySource) {

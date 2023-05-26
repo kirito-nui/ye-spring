@@ -2,6 +2,8 @@ package org.yingheng;
 
 import org.yingheng.factory.DefaultListableBeanFactory;
 import org.yingheng.beanpostprocessor.AutowiredAnnotationBeanPostProcessor;
+import org.yingheng.propertyresolver.Environment;
+import org.yingheng.propertyresolver.StandardEnvironment;
 import org.yingheng.propertyresolver.factory.DefaultPropertySourceFactory;
 import org.yingheng.propertyresolver.source.MutablePropertySources;
 import org.yingheng.propertyresolver.source.PropertySource;
@@ -40,7 +42,9 @@ public class Main {
                 propertySource = factory.createPropertySource(null, new EncodedResource(resource));
                 propertySources.addLast(propertySource);
             }
-            System.out.println();
+            Environment environment = new StandardEnvironment(propertySources);
+            String name = environment.getProperty("name");
+            System.out.println(name);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

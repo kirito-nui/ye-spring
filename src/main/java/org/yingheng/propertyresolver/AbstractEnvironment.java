@@ -15,9 +15,14 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment{
     public static final String ACTIVE_PROFILES_PROPERTY_NAME = "spring.profiles.active";
 
 
-    private final MutablePropertySources propertySources = new MutablePropertySources();
+    private final MutablePropertySources propertySources;
 
-    private final ConfigurablePropertyResolver propertyResolver = new PropertySourcesPropertyResolver(this.propertySources);
+    private final ConfigurablePropertyResolver propertyResolver;
+
+    public AbstractEnvironment(MutablePropertySources propertySources) {
+        this.propertySources = propertySources;
+        this.propertyResolver = new PropertySourcesPropertyResolver(this.propertySources);
+    }
 
     @Override
     public void setActiveProfiles(String... profiles) {
@@ -46,7 +51,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment{
 
     @Override
     public String getProperty(String key) {
-        return null;
+        return this.propertyResolver.getProperty(key);
     }
 
     @Override
