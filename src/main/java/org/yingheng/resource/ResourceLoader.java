@@ -6,6 +6,10 @@ package org.yingheng.resource;
  */
 public interface ResourceLoader {
 
+    String CLASSPATH_URL_PREFIX = "classpath:";
+
+    String CLASSPATH_ALL_URL_PREFIX = "classpath*:";
+
     Resource getResource(String location);
 
     Resource[] getResources(String locationPattern);

@@ -1,11 +1,11 @@
 package org.yingheng.factory;
 
 import org.yingheng.aware.BeanFactoryAware;
-import org.yingheng.beanDefinition.BeanDefinition;
-import org.yingheng.beanDefinition.BeanDefinitionRegistry;
-import org.yingheng.beanDefinition.RootBeanDefinition;
-import org.yingheng.beanPostProcessor.BeanPostProcessor;
-import org.yingheng.beanPostProcessor.InstantiationAwareBeanPostProcessor;
+import org.yingheng.beandefinition.BeanDefinition;
+import org.yingheng.beandefinition.BeanDefinitionRegistry;
+import org.yingheng.beandefinition.RootBeanDefinition;
+import org.yingheng.beanpostprocessor.BeanPostProcessor;
+import org.yingheng.beanpostprocessor.InstantiationAwareBeanPostProcessor;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

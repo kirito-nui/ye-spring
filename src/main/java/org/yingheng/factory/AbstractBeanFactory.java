@@ -1,6 +1,6 @@
 package org.yingheng.factory;
 
-import org.yingheng.beanDefinition.BeanDefinition;
+import org.yingheng.beandefinition.BeanDefinition;
 import org.yingheng.factory.config.DefaultSingletonBeanRegistry;
 
 /**
