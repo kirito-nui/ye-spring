@@ -1,6 +1,8 @@
 package org.yingheng.factory;
 
+import org.yingheng.aware.Aware;
 import org.yingheng.aware.BeanFactoryAware;
+import org.yingheng.aware.EnvironmentAware;
 import org.yingheng.beandefinition.BeanDefinition;
 import org.yingheng.beandefinition.BeanDefinitionRegistry;
 import org.yingheng.beandefinition.RootBeanDefinition;
@@ -75,6 +77,7 @@ public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefi
             earlySingletonObjects.put(beanName, bean);
             // 填充属性
             populateBean(beanName, rootBeanDefinition, bean);
+            initializeBean(beanName, bean, rootBeanDefinition);
             singletonObjects.put(beanName, bean);
             singletonsCurrentlyInCreation.remove(beanName);
             return bean;
@@ -91,6 +94,18 @@ public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefi
         }
     }
 
+    private void initializeBean(String beanName, Object bean, RootBeanDefinition rootBeanDefinition) {
+        invokeAwareMethods(beanName, bean);
+    }
+
+    private void invokeAwareMethods(String beanName, Object bean) {
+        if (bean instanceof Aware) {
+            if (bean instanceof BeanFactoryAware) {
+                ((BeanFactoryAware)bean).setBeanFactory(this);
+            }
+        }
+    }
+
     private void beforeSingletonCreation(String beanName) {
         singletonsCurrentlyInCreation.add(beanName);
     }
@@ -101,9 +116,6 @@ public class DefaultListableBeanFactory implements ListableBeanFactory, BeanDefi
             for (InstantiationAwareBeanPostProcessor bp : getBeanProcessorCache().instantiationAware) {
                 bp.postProcessAfterInstantiation(bean, beanName);
             }
-        }
-        if (bean instanceof BeanFactoryAware) {
-            ((BeanFactoryAware)bean).setBeanFactory(this);
         }
     }
 
